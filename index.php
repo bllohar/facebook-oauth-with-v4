@@ -18,6 +18,8 @@ session_start();
 
 FacebookSession::setDefaultApplication($APPID, $SECRET);
 
+// facebook.local will be your website url and will be used to redirect.
+
 $helper = new FacebookRedirectLoginHelper("http://facebook.local/");
 
 try {
@@ -46,6 +48,7 @@ if (isset($session)) {
     echo 'About You -  '.$me->getProperty('bio');
    
    // Upload a photo to users wall with custome message
+
     try{
      $response = (new FacebookRequest(
       $session, 'POST', '/me/photos', array(
